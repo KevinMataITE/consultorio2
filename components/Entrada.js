@@ -9,6 +9,7 @@ const Entrada = ({entrada}) => {
         <h1>{Alimento}</h1>
         <h1>{Fibra}</h1>
 
+
     </div>
   )
 }
