@@ -2,10 +2,12 @@ import React from 'react'
 import { TextInput, Checkbox, Button, Group, Box, NumberInput, NativeSelect, SimpleGrid } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useState } from 'react';
+import Porcentaje from './Porcentaje';
+import Gramos from './Gramos';
 
 const Energia = () => {
 
-  
+  const [datos,setDatos]=useState(null);
 
     const [cd, setCD] = useState(0);
   const calculoDietetico=function(){
@@ -18,6 +20,7 @@ const Energia = () => {
     const formulafinal=form.values['formula']
     const get= ""
     const ter=''
+    const cuadro=form.values['cuadro']
     
 
    /* Ser hombre es igual a 1*/ 
@@ -113,6 +116,16 @@ const Energia = () => {
 
     setCD(get)
 
+    setDatos({
+      peso:pesofinal,
+      actividad:fdfinal,
+      sexo:sexofinal,
+      edad:edadfinal,
+      altura:tallafinal,
+      formulafinal:formulafinal,
+      get:parseInt(get),
+      cuadro:cuadro
+    })
 
 
     
@@ -131,13 +144,19 @@ const Energia = () => {
          edad:'',
          talla:'',
          formula:'',
+         cuadro:'',
           termsOfService: false,
         },
     
         validate: {
-          peso: (value) => (value <=0  ? 'El peso no puede ser negativo' : null),
-          altura: (value) => (value <=0  ? 'La altura no puede ser negativa' : null),
-          edad: (value) => (value <18  ? 'La formula no funciona con menores de edad' : null)
+         
+          sexo: (value) => (value.length < 1 ? 'El campo esta vacio' : null),
+          fd: (value) => (value.length < 1 ? 'El campo esta vacio' : null),
+          talla: (value) => (value <=0  ? 'La altura no puede ser negativa' : null),
+          edad: (value) => (value <18  ? 'La formula no funciona con menores de edad' : null),
+          formula: (value) => (value.length < 1 ? 'El campo esta vacio' : null),
+          cuadro: (value) => (value.length < 1 ? 'El campo esta vacio' : null),
+          peso: (value) => (value.length < 1 ? 'El campo esta vacio' : null),
         },
       });
 
@@ -195,18 +214,37 @@ const Energia = () => {
       {...form.getInputProps('formula')}
       withAsterisk
     />
+
+<NativeSelect
+      data={[{ value: '1', label: 'Porcentaje' }, { value: '2', label: 'Gramo/Kilogramo' }, ]}
+      placeholder="Seleccionar..."
+      label="Selecciona el tipo de cuadro"
+      size="md"
+      {...form.getInputProps('cuadro')}
+      withAsterisk
+    />
     <SimpleGrid cols={2} spacing="sm" verticalSpacing="sm">
       <p>Las formulas Harris Benedict y MIFFLIN ST-JEOR manejan la talla en CM</p>
       <p>La formula de la  OMS maneja la talla en Metros </p>
       
+
     </SimpleGrid>
      
+
 
         <Group position="right" mt="md">
           <Button type="submit" >Calcular</Button>
         </Group>
         <p >{cd == 0 ? "": "Tu Calculo Dietetico es de " +cd.toPrecision(7)} </p>
       </form>
+      {
+        datos!= null && datos.cuadro== '1'? <Porcentaje datosPersona={datos}/>: null
+      }
+      {
+        datos!= null && datos.cuadro== '2'? <Gramos datosPersona={datos}/>: null
+      }
+    
+      
       
       
     </Box>

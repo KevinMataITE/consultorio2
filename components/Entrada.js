@@ -1,15 +1,25 @@
 import React from 'react'
 
-const Entrada = ({entrada}) => {
-    const {Alimento , Fibra} = entrada
+const Entrada = ({nombre,categoria,calorias,proteina}) => {
+    
     
   return (
     
     <div>
-        <h1>{Alimento}</h1>
-        <h1>{Fibra}</h1>
-
-
+       <ul>
+        <li>
+          Nombre: {nombre}
+        </li>
+        <li>
+          Categoria: {categoria}
+        </li>
+        <li>
+          Calorias: {calorias}
+        </li>
+        <li>
+          Proteina: {proteina}
+        </li>
+       </ul>
     </div>
   )
 }

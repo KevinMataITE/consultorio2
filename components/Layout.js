@@ -39,7 +39,7 @@ export default function Layout({children}) {
         <Link href='/bmi'>BMI</Link>
         </div>
         <div className={styles.opcion}>
-        <Link href='/calculo'>calculo</Link>
+        <Link href='/calculo'>Calculo</Link>
         </div>
         <div className={styles.opcion}>
         <Link href='/comida'>Alimentos</Link>
