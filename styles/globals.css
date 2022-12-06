@@ -1,3 +1,11 @@
+:root{
+  --carmesi: #590004;
+  --amarillo: #FCBA04;
+  --blanco:#F3F3F3;
+  
+}
+
+
 html,
 body {
   padding: 0;

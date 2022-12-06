@@ -1,3 +1,4 @@
+import styles from '../styles/Layout.module.css';
 import { useState } from 'react';
 import {
   AppShell,
@@ -20,12 +21,37 @@ export default function Layout({children}) {
     <AppShell
       styles={{
         main: {
-          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+          background: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.orange[2],
         },
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
       navbar={
+        <Navbar height={850} p="xs" width={{ base: 200 }} className={styles.nav}>
+        
+        <Navbar.Section grow mt="md">{/* Links sections */
+        <div className={styles.categoria}>
+        <div className={styles.opcion}>
+        <Link href='/'>Inicio</Link>
+        </div>
+        
+        <div className={styles.opcion}>
+        <Link href='/bmi'>BMI</Link>
+        </div>
+        <div className={styles.opcion}>
+        <Link href='/calculo'>calculo</Link>
+        </div>
+        <div className={styles.opcion}>
+        <Link href='/comida'>Alimentos</Link>
+        </div>
+        </div>
+        
+        
+
+        }</Navbar.Section>
+        <Navbar.Section>{/* Footer with user */}</Navbar.Section>
+      </Navbar>
+      /*
         <SimpleGrid cols={1} spacing="xl" verticalSpacing="xs">
         <ul>
             <li><Link href='/'>Inicio</Link></li>
@@ -37,7 +63,7 @@ export default function Layout({children}) {
         
         
       </SimpleGrid>
-        
+        */
         
         
       }
@@ -51,7 +77,7 @@ export default function Layout({children}) {
       
       footer={
         <Footer height={60} p="md">
-          Application footer
+          Instituto Nacional de Mexico Campus Ensenada
         </Footer>
       }
       /*header={
