@@ -37,8 +37,8 @@ const Comida = () => {
         Submit
       </Button>
       {
-        entradasFiltradas.map(alimento=>(
-          <Entrada nombre={alimento.Alimento} categoria={alimento.Categoría} calorias={alimento.EnergíaKcal} proteina={alimento.Proteína}/>
+        entradasFiltradas.map((alimento,i)=>(
+          <Entrada nombre={alimento.Alimento} key={i} categoria={alimento.Categoría} calorias={alimento.EnergíaKcal} proteina={alimento.Proteína}/>
         ))
       }
      
