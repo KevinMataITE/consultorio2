@@ -5,7 +5,7 @@ import { useForm } from '@mantine/form';
 import { useState } from 'react';
 
 
-const bmi = () => {
+const Bmi = () => {
   const [bmi,setBmi] = useState(0);
   const calculobmi=function(){
     
@@ -61,4 +61,4 @@ const bmi = () => {
   )
 }
 
-export default bmi
+export default Bmi
