@@ -31,10 +31,10 @@ const Comida = () => {
   return (
     <Layout>
             <form onSubmit={form.onSubmit(entrada)}>
-      <TextInput label="food" placeholder="Name" {...form.getInputProps('food')} />
+      <TextInput label="Comida" placeholder="Introdusca la comida que quiere buscar" {...form.getInputProps('food')} />
       
       <Button type="submit" mt="sm">
-        Submit
+        Buscar
       </Button>
       {
         entradasFiltradas.map((alimento,i)=>(
