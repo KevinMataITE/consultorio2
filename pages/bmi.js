@@ -6,13 +6,13 @@ import { useState } from 'react';
 
 
 const bmi = () => {
-  const [bmi, setbmi] = useState(0);
+  const [bmi,setBmi] = useState(0);
   const calculobmi=function(){
     
     const pesofinal = form.values['peso']
     const alturafinal = form.values['altura']
     const salida = pesofinal /(alturafinal * alturafinal)
-    setbmi(salida)
+  setBmi(salida)
 
 
   }
