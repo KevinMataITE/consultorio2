@@ -29,6 +29,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-REsvisa este proyecto en vercel [Ver en Vercel](https://consultorio2-kkia.vercel.app).
+Revisa este proyecto en vercel [Ver en Vercel](https://consultorio2-kkia.vercel.app).
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
